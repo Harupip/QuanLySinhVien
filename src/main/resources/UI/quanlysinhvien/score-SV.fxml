@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.quanlysinhvien.scoreSvController">
+    <children>
+        <AnchorPane prefHeight="71.0" prefWidth="437.0" />
+        <HBox prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="37.0" prefWidth="140.0" text="Mã số sinh viên : " textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+               <HBox.margin>
+                  <Insets left="115.0" />
+               </HBox.margin>
+                </Label>
+                <Label fx:id="mssvLabel" text="20020303">
+                    <padding>
+                        <Insets top="9.0" />
+                    </padding>
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+      <Label text="(Điểm trung bình = 0.4 * Điểm Giữa kì + 0.6 * Điểm Cuối kì)">
+         <VBox.margin>
+            <Insets bottom="10.0" left="70.0" />
+         </VBox.margin>
+      </Label>
+      <TableView fx:id="diemTableView" prefHeight="197.0" prefWidth="394.0" VBox.vgrow="NEVER">
+        <columns>
+            <TableColumn fx:id="subjectIDCol" prefWidth="102.0" text="Mã Môn Học" />
+          <TableColumn fx:id="diemGkCol" prefWidth="100.0" text="Điểm Giữa Kì" />
+          <TableColumn fx:id="diemCkCol" prefWidth="109.0" text="Điểm Cuối Kì" />
+            <TableColumn fx:id="diemTBCol" prefWidth="124.0" text="Điểm Trung Bình" />
+        </columns>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </TableView>
+      <HBox spacing="30.0">
+         <VBox.margin>
+            <Insets left="120.0" top="20.0" />
+         </VBox.margin>
+         <children>
+              <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#fixDiem" prefWidth="55.0" text="Sửa">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+              </Button>
+            <Button fx:id="okButton1" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#addDiem" text="Thêm">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="okButton2" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteDiem" prefWidth="55.0" text="Xóa">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+    </children>
+</VBox>

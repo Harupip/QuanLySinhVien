@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="264.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.quanlysinhvien.fixDiemController">
+    <children>
+        <AnchorPane prefHeight="71.0" prefWidth="437.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="16.0" prefHeight="44.0" prefWidth="141.0" text="Sửa Điểm">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+      <HBox>
+         <children>
+            <Label text="Môn học: ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="monHocLabel" text="Xác suất thống kê">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+        <HBox prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="122.0" text="Điểm Giữa Kì" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="GKTextArea" prefHeight="25.0" prefWidth="95.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="115.0" prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="123.0" text="Điểm Cuối Kì" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="CKTextArea" prefHeight="25.0" prefWidth="95.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#fixAccepted" prefHeight="25.0" prefWidth="42.0" text="Sửa">
+            <VBox.margin>
+                <Insets left="140.0" top="20.0" />
+            </VBox.margin>
+        </Button>
+    </children>
+</VBox>
