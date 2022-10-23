@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.quanlysinhvien.editSVController">
+    <children>
+        <AnchorPane prefHeight="71.0" prefWidth="437.0" />
+        <HBox prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="37.0" prefWidth="140.0" text="Mã số sinh viên : " textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+            <Label fx:id="mssvLabel" text="Label">
+               <padding>
+                  <Insets top="9.0" />
+               </padding>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            </children>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="115.0" prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="140.0" text="Họ và tên" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="nameTextArea" prefHeight="25.0" prefWidth="172.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="152.0" prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="140.0" text="Khoa :" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <ChoiceBox fx:id="khoaChoiceBox" prefHeight="25.0" prefWidth="172.0">
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </ChoiceBox>
+            </children>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="189.0" prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="140.0" text="Nơi sinh :" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="addressTextArea" prefHeight="25.0" prefWidth="171.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="266.0" prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="140.0" text="Ngày sinh :" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <DatePicker fx:id="birthTextField">
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </DatePicker>
+            </children>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="226.0" prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="140.0" text="Số điện thoại :" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="phoneTextArea" prefHeight="25.0" prefWidth="173.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="263.0" prefHeight="37.0" prefWidth="437.0">
+            <children>
+                <Label prefHeight="37.0" prefWidth="140.0" text="Email :" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets left="14.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="emailTextArea" prefHeight="25.0" prefWidth="172.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets top="7.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#fixSv" text="Sửa">
+            <VBox.margin>
+                <Insets left="193.0" top="20.0" />
+            </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+        </Button>
+    </children>
+</VBox>

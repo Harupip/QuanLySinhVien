@@ -68,11 +68,11 @@ public class Score {
     public void fixDiem (String mssv, String subjectId, float diemGiuaKi, float diemCuoiKi) throws SQLException {
         Connection connection = MySqlConnection.getAccess();
 
-        String sth = "DiemGiuaKi =" + diemGiuaKi;
-        sth += "DiemCuoiKi =" + diemCuoiKi;
-        sth += "IDMonHoc =" + "'" + subjectId + "'";
+        String sth = "DiemGiuaKi = " + diemGiuaKi + " , ";
+        sth += "DiemCuoiKi = " + diemCuoiKi;
 
-        String sql = "UPDATE diem SET " + sth + "WHERE MSSV = " + "'" + mssv + "'";
+        String sql = "UPDATE diem SET " + sth + " WHERE MSSV = " + "'" + mssv + "'" + " AND IDMonHoc =" + "'" + subjectId + "'";
+        System.out.println(sql);
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.executeUpdate();
         statement.close();

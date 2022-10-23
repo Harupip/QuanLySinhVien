@@ -30,6 +30,8 @@ public class fixDiemController {
             float ck = 0;
             gk = Float.parseFloat(getGKTextArea().getText());
             ck = Float.parseFloat(getCKTextArea().getText());
+            System.out.println(gk + " " + ck);
+            System.out.println(getCKTextArea().getText());
 
             if ((gk < 0 || gk > 10) || ck < 0 || ck > 10) {
                 showAlertWithoutHeaderText();

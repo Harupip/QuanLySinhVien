@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -109,7 +106,33 @@ public class scoreSvController implements Initializable {
 
     @FXML
     void fixDiem(ActionEvent event) throws SQLException {
+        try {
+            Score score = diemTableView.getSelectionModel().getSelectedItem();
 
+        FXMLLoader loader = new FXMLLoader ();
+        loader.setLocation(getClass().getResource("fix-Diem.fxml"));
+        try {
+            loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(HelloController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        fixDiemController fixDiemController = loader.getController();
+        fixDiemController.setMssv(score.getMssv());
+        fixDiemController.setGKTextArea(score.getDiemGiuaKi());
+        fixDiemController.setCKTextArea(score.getDiemCuoiKi());
+        fixDiemController.setMonHocLabel(score.getSubjectId());
+        refreshTable();
+
+
+        Parent parent = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        } catch (Exception e) {
+            showAlertWithoutHeaderText();
+        }
     }
 
 
@@ -124,7 +147,7 @@ public class scoreSvController implements Initializable {
         }
         addDiemController addDiemController = loader.getController();
 
-        refreshTable();
+
         addDiemController.setMssv(studentID);
 
         Parent parent = loader.getRoot();
@@ -133,11 +156,23 @@ public class scoreSvController implements Initializable {
         stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
+        refreshTable();
     }
 
     @FXML
     void deleteDiem(ActionEvent event) {
 
+    }
+
+    private void showAlertWithoutHeaderText() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning alert");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Hãy chọn môn học cần sửa");
+
+        alert.showAndWait();
     }
 
     public String getStudentID() {
