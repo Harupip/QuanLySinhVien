@@ -3,11 +3,16 @@ package UI.quanlysinhvien;
 import QuanLy.Score;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class addDiemController {
     private String mssv ="";
@@ -33,12 +38,15 @@ public class addDiemController {
             float ck = 0;
             gk = Float.parseFloat(GKTextArea.getText());
             ck = Float.parseFloat(CKTextArea.getText());
+            String subID = monHocChoiceBox.getValue();
+            if (subID.equals("Xác xuất thống kê")) subID = "MAT1101";
+            if (subID.equals("Cơ sở dữ liệu")) subID = "INT2211";
 
             if ((gk < 0 || gk > 10) || ck < 0 || ck > 10) {
                 showAlertWithoutHeaderText();
             }
             else {
-                new Score().addDiem(mssv,"INT2211",gk,ck);
+                new Score().addDiem(mssv,subID,gk,ck);
                 ((Node)(event.getSource())).getScene().getWindow().hide();
             }
 

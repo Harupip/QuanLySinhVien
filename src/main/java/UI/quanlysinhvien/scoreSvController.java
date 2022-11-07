@@ -51,6 +51,9 @@ public class scoreSvController implements Initializable {
     @FXML
     private Button okButton;
 
+    @FXML
+    private Label tinChiLabel;
+
     String query = null;
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -77,6 +80,13 @@ public class scoreSvController implements Initializable {
             scoreList.add(new Score(mssv,idmonhoc,diemGiuaKi,diemCuoiKi,diemTB));
             diemTableView.setItems(scoreList);
 
+        }
+        String query2 = "select sum(monhoc.SoTinChi) as TongSoTinChi from diem inner join monhoc on diem.IDMonHoc = monhoc.IDMonHoc group by MSSV having " + a;
+        PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
+        ResultSet resultSet2 = preparedStatement2.executeQuery();
+        while (resultSet2.next()) {
+           int tinChiSum = resultSet2.getInt(1);
+           tinChiLabel.setText(String.valueOf(tinChiSum));
         }
     }
 
@@ -118,6 +128,7 @@ public class scoreSvController implements Initializable {
         }
         fixDiemController fixDiemController = loader.getController();
         fixDiemController.setMssv(score.getMssv());
+        fixDiemController.setSubjectID(score.getSubjectId());
         fixDiemController.setGKTextArea(score.getDiemGiuaKi());
         fixDiemController.setCKTextArea(score.getDiemCuoiKi());
         fixDiemController.setMonHocLabel(score.getSubjectId());
@@ -161,7 +172,13 @@ public class scoreSvController implements Initializable {
 
     @FXML
     void deleteDiem(ActionEvent event) {
-
+        try {
+            Score score = diemTableView.getSelectionModel().getSelectedItem();
+            score.deleteDiem(score.getSubjectId());
+            refreshTable();
+        } catch (Exception e) {
+            showAlertWithoutHeaderText();
+        }
     }
 
     private void showAlertWithoutHeaderText() {
@@ -170,7 +187,7 @@ public class scoreSvController implements Initializable {
 
         // Header Text: null
         alert.setHeaderText(null);
-        alert.setContentText("Hãy chọn môn học cần sửa");
+        alert.setContentText("Hãy chọn môn học");
 
         alert.showAndWait();
     }

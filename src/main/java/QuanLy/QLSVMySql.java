@@ -33,7 +33,7 @@ public class QLSVMySql {
             statement.close();
             */
 
-            // Lay du lieu tu database
+//             Lay du lieu tu database
 //            String nani = "FROM";
 //            String sql = "SELECT * "+nani+" customer";
 //            Statement statement = connection.createStatement();

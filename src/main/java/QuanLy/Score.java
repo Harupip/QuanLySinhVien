@@ -52,11 +52,11 @@ public class Score {
         connection.close();
     }
 
-    public void deleteDiem (String mssv) throws SQLException {
+    public void deleteDiem (String subjectId) throws SQLException {
         Connection connection = MySqlConnection.getAccess();
         String sth = "";
-        if (!mssv.equals("")) {
-            sth += "MSSV = " + "'" + mssv + "'";
+        if (!subjectId.equals("")) {
+            sth += "IDMonHoc = " + "'" + subjectId + "'";
         }
         String sql = "DELETE FROM diem WHERE " + sth;
         PreparedStatement statement = connection.prepareStatement(sql);

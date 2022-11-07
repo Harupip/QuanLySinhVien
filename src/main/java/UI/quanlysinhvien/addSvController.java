@@ -3,10 +3,14 @@ package UI.quanlysinhvien;
 import QuanLy.SinhVien;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class addSvController {
     @FXML
@@ -38,6 +42,8 @@ public class addSvController {
     @FXML
     void addAccepted(ActionEvent event) throws SQLException {
         try {
+            String khoaid = "CNTT";
+            if (khoaChoiceBox.getValue().equals("Khoa học máy tính")) khoaid = "KHMT";
             String mssv = null;
             String name = null;
             String birth = null;
@@ -51,7 +57,8 @@ public class addSvController {
             if (!phoneTextArea.equals(null)) phone = phoneTextArea.getText();
             if (!emailTextArea.equals(null)) email = emailTextArea.getText();
             SinhVien sinhVien = new SinhVien();
-            sinhVien.addSV(mssv,"CNTT",name,birth,address,phone,email);
+            sinhVien.addSV(mssv,khoaid,name,birth,address,phone,email);
+
             mssvTextArea.setText(null);
             nameTextArea.setText(null);
             birthTextField.setValue(null);

@@ -49,6 +49,12 @@ public class HelloController implements Initializable {
     private Button addNewSV;
 
     @FXML
+    private Button search;
+
+    @FXML
+    private TextField searchText;
+
+    @FXML
     private TableView<SinhVien> studentsTable;
 
     @FXML
@@ -262,6 +268,30 @@ public class HelloController implements Initializable {
     @FXML
     void refreshButton(ActionEvent event) throws SQLException {
         refreshTable();
+    }
+
+    @FXML
+    void searchButton(ActionEvent event) throws SQLException {
+        SVlist.clear();
+        String search  = searchText.getText();
+
+        query = "select * from sinhvien where MSSV like '" + search + "%'";
+        preparedStatement = connection.prepareStatement(query);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            String mssv = resultSet.getString("MSSV");
+            String idkhoa = resultSet.getString("IDKhoa");
+            String ten = resultSet.getString("TenSV");
+            String ngaysinh = resultSet.getString("NgaySinh");
+            String noisinh = resultSet.getString("NoiSinh");
+            String sdt = resultSet.getString("SoDienThoai");
+            String email = resultSet.getString("Email");
+
+            SVlist.add(new SinhVien(mssv,idkhoa,ten,ngaysinh,noisinh,sdt,email));
+            studentsTable.setItems(SVlist);
+
+        }
     }
 
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 
 public class fixDiemController {
     private String mssv ="";
+    private String subjectID = "";
 
     @FXML
     private TextField GKTextArea;
@@ -30,14 +31,12 @@ public class fixDiemController {
             float ck = 0;
             gk = Float.parseFloat(getGKTextArea().getText());
             ck = Float.parseFloat(getCKTextArea().getText());
-            System.out.println(gk + " " + ck);
-            System.out.println(getCKTextArea().getText());
 
             if ((gk < 0 || gk > 10) || ck < 0 || ck > 10) {
                 showAlertWithoutHeaderText();
             }
             else {
-                new Score().fixDiem(mssv,"INT2211",gk,ck);
+                new Score().fixDiem(mssv,subjectID,gk,ck);
                 ((Node)(event.getSource())).getScene().getWindow().hide();
             }
 
@@ -74,6 +73,10 @@ public class fixDiemController {
         this.mssv = mssv;
     }
 
+    public void setSubjectID(String subjID) {
+        this.subjectID = subjID;
+    }
+
     public TextField getGKTextArea() {
         return GKTextArea;
     }
@@ -95,6 +98,9 @@ public class fixDiemController {
     }
 
     public void setMonHocLabel(String a) {
-        monHocLabel.setText(a);
+        String b="";
+        if (a.equals("MAT1101")) b = "Xác xuất thống kê";
+        if (a.equals("INT2211")) b = "Cơ sở dữ liệu";
+        monHocLabel.setText(b);
     }
 }
